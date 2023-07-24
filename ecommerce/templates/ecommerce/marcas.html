@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block link %}
+
+<li><a class="text-white" href="{% url 'produto_listar' %}">Produtos</a></li>
+<li><a class="text-white"  href="{% url 'marca_listar' %}">Marcas</a></li>
+  {% endblock %}
+{% block center %}
+<div class="container py-5">
+  <h2 class="fw-light text-center py-3 "> Lista das Marcas Cadastradas</h2>
+
+  <a href="{% url 'marca_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for marca in marcas %}  
+      <tr>
+          <td>{{ marca.nome }}</td>
+          <td>
+              <a href="{% url 'marca_editar' id=marca.id %}" class="btn btn-primary btn-sm">Editar</a>
+              <a href="{% url 'marca_remover' id=marca.id %}" class="btn btn-danger btn-sm">Remover</a>
+          </td>
+      </tr>
+      {% endfor %}
+    
+    </tbody>
+  </table>
+
+</div>
+{% endblock %}
+
+
+

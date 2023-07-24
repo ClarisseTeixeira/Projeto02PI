@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block link %}
+
+<li><a class="text-white" href="{% url 'produto_listar' %}">Produtos</a></li>
+<li><a class="text-white"  href="{% url 'marca_listar' %}">Marcas</a></li>
+  {% endblock %}
+{% block center %}
+
+
+<div class="container ">
+
+<section class="py-3 text-center container">
+    <div class="row py-lg-3">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Formulário de Marca</h1>
+      </div>
+    </div>
+  </section>
+       
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            {{ form.nome }}
+        </div>
+
+        <button type="submit" class="btn btn-primary ">Enviar</button>
+        
+    </form>   
+    </div> 
+{% endblock %}
+   
